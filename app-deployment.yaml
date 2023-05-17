@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: suburb-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: suburb-app
+  template:
+    metadata:
+      labels:
+        app: suburb-app
+    spec:
+      containers:
+        - name: suburb-app
+          image: gcr.io/sit323-737-2023-t1-prac10p/suburb-app:latest
+          ports:
+            - containerPort: 3000
